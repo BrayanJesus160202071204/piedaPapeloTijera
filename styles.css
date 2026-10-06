@@ -3,7 +3,7 @@
 body{
     min-height: 100vh;
     display: flex;
-    
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #1a1a2e;
@@ -31,6 +31,7 @@ h1{
 /*--Soreboard--*/
 .scoreboard{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 2rem;
     margin-bottom: 2rem;
@@ -122,6 +123,14 @@ h1{
 .lose {color: #e94560;}
 .drew {color: #f0c040;}
 /*--Game Over--*/
+.game-over {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: none;
+}
 .game-over.show {display: block;}
 .game-over.human-wins {background: #14382b; color:#4ecca3}
 .game-over.computer-win {background: #3b1526; color: #e94560}
