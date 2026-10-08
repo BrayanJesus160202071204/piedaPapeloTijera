@@ -42,9 +42,61 @@ function updateScore(){
     computerScoreEl.textContent = computerScore;
 }
 
-function showRoundResult(winnwe, humanChoice, computerChoice){
+function showRoundResult(winer, humanChoice, computerChoice){
     const hEmoji = EMOJI_MAP(humanChoice);
     const cEmoji = EMOJI_MAP(computerChoice);
 
     roundDetaiEl.textContent = `${hEmoji} ${humanChoice} vs ${cEmoji} ${computerChoice}`;
+
+    if (winner === 'human'){
+        roundResultEl.textContent = `You win this raund!`;
+        raundResultEl.className = `raund-result-win`;
+    }else if(winner === 'computer'){
+        roundResultEl.textContent = `You lose this raund!`;
+        raundResultEl.className = `raund-result-lose`;    
+    }else{
+        roundResultEl.textContent = `It´s a draw!`;
+        raundResultEl.className = `raund-result-deaw`;   
+    }
 }
+
+function checkGameOver(){
+    if (humanScore === 3){
+        gameOverTextEl.textContent = 'You win this game 🎉';
+        gameOverTextEl.className = 'game-over show huaman-win';
+        disableButtons (true);
+    }else if (computerScore === 3){
+        gameOverTextEl.textContent = 'You lose this game 🎉';
+        gameOverTextEl.className = 'game-over show computer-win';
+        disableButtons (true);
+    }
+}
+
+function disableButtons(disabled){
+    buttons.forEach(btn => btn.disabled = disabled);
+}
+function resetGame(){
+    humanScore = 0;
+    computerScore = 0;
+    updateScore();
+    raundResultEl.textContent = 'Choose your wepon!';
+    raundResultEl.className = 'round-result';
+    raundResultEl.textContent = '';
+    gameOverEl.className = 'game-over';
+    disableButtons(false);
+}
+
+//--- Event listenwrs ---
+buttons.forEach(btn =>{
+    btn.addEventListener('click', () => {
+        const humanChoice = btn.dataset.choice;
+        const computerChoice = getComputerChoice();
+        const winner = playRaund(humanChoice, computerChoice);
+
+        updateScore();
+        showRoundResult(winner, humanChoice. computerChoice);
+        checkGameOver();
+    });
+});
+
+document.getElementById('play-again').addEventListener('click', resetGame);
