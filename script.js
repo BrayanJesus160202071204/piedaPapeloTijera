@@ -5,11 +5,11 @@ let computerScore = 0;
 //---DOM References---
 const humanScoreEl = document.getElementById('human-score');
 const computerScoreEl = document.getElementById('computer-score');
-const raundResultEl = document.getElementById('round-result');
+const roundResultEl = document.getElementById('round-result');
 const roundDetaiEl = document.getElementById('round-detail');
 const gameOverEl = document.getElementById('game-over');
 const gameOverTextEl = document.getElementById('game-over-text');
-const buttons = document.getElementById('.choice-btn');
+const buttons = document.querySelectorAll('.choice-btn');
 
 //---Core Logic---
 function getComputerChoice(){
@@ -42,7 +42,7 @@ function updateScore(){
     computerScoreEl.textContent = computerScore;
 }
 
-function showRoundResult(winer, humanChoice, computerChoice){
+function showRoundResult(winner, humanChoice, computerChoice){
     const hEmoji = EMOJI_MAP(humanChoice);
     const cEmoji = EMOJI_MAP(computerChoice);
 
@@ -50,20 +50,20 @@ function showRoundResult(winer, humanChoice, computerChoice){
 
     if (winner === 'human'){
         roundResultEl.textContent = `You win this raund!`;
-        raundResultEl.className = `raund-result-win`;
+        roundResultEl.className = `round-result-win`;
     }else if(winner === 'computer'){
         roundResultEl.textContent = `You lose this raund!`;
-        raundResultEl.className = `raund-result-lose`;    
+        roundResultEl.className = `round-result-lose`;    
     }else{
         roundResultEl.textContent = `It´s a draw!`;
-        raundResultEl.className = `raund-result-deaw`;   
+        roundResultEl.className = `round-result-deaw`;   
     }
 }
 
 function checkGameOver(){
     if (humanScore === 3){
         gameOverTextEl.textContent = 'You win this game 🎉';
-        gameOverTextEl.className = 'game-over show huaman-win';
+        gameOverTextEl.className = 'game-over show human-win';
         disableButtons (true);
     }else if (computerScore === 3){
         gameOverTextEl.textContent = 'You lose this game 🎉';
@@ -79,9 +79,9 @@ function resetGame(){
     humanScore = 0;
     computerScore = 0;
     updateScore();
-    raundResultEl.textContent = 'Choose your wepon!';
-    raundResultEl.className = 'round-result';
-    raundResultEl.textContent = '';
+    roundResultEl.textContent = 'Choose your wepon!';
+    roundResultEl.className = 'round-result';
+    roundResultEl.textContent = '';
     gameOverEl.className = 'game-over';
     disableButtons(false);
 }
@@ -94,7 +94,7 @@ buttons.forEach(btn =>{
         const winner = playRaund(humanChoice, computerChoice);
 
         updateScore();
-        showRoundResult(winner, humanChoice. computerChoice);
+        showRoundResult(winner, humanChoice, computerChoice);
         checkGameOver();
     });
 });
