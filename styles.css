@@ -3,7 +3,6 @@
 body{
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #1a1a2e;
@@ -31,7 +30,6 @@ h1{
 /*--Soreboard--*/
 .scoreboard{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     gap: 2rem;
     margin-bottom: 2rem;
@@ -121,7 +119,7 @@ h1{
 }
 .win {color: #4ecca3;}
 .lose {color: #e94560;}
-.drew {color: #f0c040;}
+.draw {color: #f0c040;}
 /*--Game Over--*/
 .game-over {
     margin-top: 1.5rem;
@@ -133,7 +131,7 @@ h1{
 }
 .game-over.show {display: block;}
 .game-over.human-wins {background: #14382b; color:#4ecca3}
-.game-over.computer-win {background: #3b1526; color: #e94560}
+.game-over.computer-wins {background: #3b1526; color: #e94560}
 
 .play-again {
     margin-top: 1rem;
