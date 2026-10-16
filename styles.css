@@ -1,9 +1,9 @@
-*{margin: 0; padding: 0; box-sizing: border-box;}
+* {margin: 0; padding: 0; box-sizing: border-box;}
 
-body{
+body {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
     background: #1a1a2e;
     font-family: 'Segoe UI', system-ui, sans-serif;
@@ -15,27 +15,27 @@ body{
     width: 90%;
 }
 
-h1{
+h1 {
     font-size: 1.8rem;
     margin-bottom: 0.3rem;
     letter-spacing: 2px;
 }
 
 .subtitle{
-    color: #888;
+    color:#888;
     font-size: 0.85rem;
     margin-bottom: 2rem;
 }
 
 /*--Soreboard--*/
-.scoreboard{
+.scoreboard {
     display: flex;
     justify-content: center;
     gap: 2rem;
     margin-bottom: 2rem;
 }
 
-.score-card{
+.score-card {
     background: #16213e;
     border-radius: 12px;
     padding: 1rem 2rem;
@@ -45,7 +45,7 @@ h1{
 .score-card.human{border-bottom: 3px solid #4ecca3;}
 .score-card.computer{border-bottom: 3px solid #e94560;}
 
-.score-label{
+.score-label {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -57,19 +57,22 @@ h1{
     font-weight: 700;
 }
 
+.score-card.human .score-value {color: #4ecca3;}
+.score-card.computer .score-value {color: #e94560}
+
 .choices {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap:1rem;
     margin-bottom: 2rem;
 }
 
-.choice-btn{
+.choice-btn {
     background: #16213e;
     border: 2px solid #30475e;
     border-radius: 14px;
     padding: 1rem 1.4rem;
-    cursor: pointer;
+    cursor:pointer;
     transition: transform 0.15s, border-color 0.15s, background 0.15s;
     display: flex;
     flex-direction: column;
@@ -93,14 +96,14 @@ h1{
     letter-spacing: 1px;
 }
 
-.choice-btn:disabled{
+.choice-btn:disabled {
     opacity: 0.4;
-    cursor: default;
+    cursor:default;
     transform: none;
     border-color: #30475e;
 }
 /* -- Results */
-.results{
+.results {
     background: #16213e;
     border-radius: 12px;
     padding: 1.2rem;
@@ -109,17 +112,17 @@ h1{
     flex-direction: column;
     justify-content: center;
 }
-.round-result{
+.round-result {
     font-size: 1.1rem;
     margin-bottom: 0.3rem;
 }
-.round-detail{
+.round-detail {
     font-size: 0.85rem;
     color: #888;
 }
 .win {color: #4ecca3;}
-.lose {color: #e94560;}
-.draw {color: #f0c040;}
+.lose {color: #e94560}
+.draw {color: #f0c040}
 /*--Game Over--*/
 .game-over {
     margin-top: 1.5rem;
@@ -131,7 +134,7 @@ h1{
 }
 .game-over.show {display: block;}
 .game-over.human-wins {background: #14382b; color:#4ecca3}
-.game-over.computer-wins {background: #3b1526; color: #e94560}
+.game-over.computer-wins{background: #3b1526; color: #e94560}
 
 .play-again {
     margin-top: 1rem;
@@ -143,6 +146,6 @@ h1{
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: opacity 00.15s;
+    transition: opacity 0.15s;
 }
 .play-again:hover {opacity: 0.85}
