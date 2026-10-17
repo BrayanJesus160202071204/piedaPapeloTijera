@@ -13,12 +13,12 @@ const buttons = document.querySelectorAll('.choice-btn')
 
 //--- Core Logic ---
 function getComputerChoice() {
-    const num = Math.floor(Math.random() * 3 ) + 1;
+    const num = Math.floor(Math.random() * 3)+ 1;
     if(num === 1) return 'rock';
     if(num === 2) return 'paper';
     return 'scissors';
 }
-function playRaund(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
     if(humanChoice === computerChoice){
         return 'draw'
     } else if(
